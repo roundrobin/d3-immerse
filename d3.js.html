@@ -1,0 +1,572 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Nils Schlomann - Current status: growing</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/libs/d3.v2.js"></script>
+   <script type="text/javascript">
+    jQuery.noConflict();
+    Object.extend = jQuery.extend;
+  </script>
+  <script src="js/libs/rainbow/rainbow.min.js"></script>
+  <script src="js/libs/rainbow/generic.js"></script>
+  <script src="js/libs/rainbow/python.js"></script>
+  <script src="js/libs/rainbow/javascript.js"></script>
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+  <link href="css/themes/blackboard.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+
+    .middle table{
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+    .middle table thead td{
+        background: #ddd;
+    }
+    .middle table td{
+        vertical-align: top;
+        padding: 5px;
+
+    }
+    svg{
+        border: 2px solid red;
+        margin-left: auto;
+        margin-right: auto;
+        background: black;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    rect, text{
+        cursor: pointer;
+    }
+
+    .butt1{
+          -moz-box-shadow:    3px 3px 5px 20px white;
+          -webkit-box-shadow: 3px 3px 5px 20px white;
+          box-shadow:         3px 3px 5px 20px white;
+    }
+
+    pre{
+        display: table-cell;
+    }
+    #run{ padding: 10px; width: 100px; }
+
+  </style>
+</head>
+<body>
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <header>
+    <nav><a name="#home">Home</a></nav> 
+    <nav> | </nav>
+    <nav><a name="#projects">Projects</a></nav> 
+    <nav> | </nav>
+    <nav><a name="#about">About</a></nav>
+    <br>
+    
+  </header>
+  <div role="main">
+    <h1>d3.js Beginner Board</h1>
+     <div class="middle">
+        <table border=1 cellspacing=0>
+            <thead>
+                <tr>
+                    <td>
+                    </td>
+                    <td>Explanation</td>
+                    <td>SVG Test</td>
+                    <td>Code</td>
+                </tr>
+            </thead>
+            <tr>
+                <td>1</td>
+                <td>
+                    Rectangular
+                </td>
+                <td id="canvas0"></td>
+                    <td>
+
+                    <pre>
+<code data-language="javascript">svg.append("rect")
+    .attr("width",50)
+    .attr("height",50)
+    .attr("y", 25)
+    .attr("x", 225)
+    .style("fill", "red")                           
+                        </code>
+                    </pre>
+
+                
+
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Circle</td>
+                <td id="canvas1"></td>
+                <td>
+                  <pre>
+<code data-language="javascript">svg.append("circle")
+    .style("fill", "blue")
+    .attr("cx", 225)
+    .attr("cy", 25)
+    .attr("r", 30)  // r = Radius                 
+                    
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Path</td>
+                <td id="canvas2"></td>
+                <td>
+                  <pre>
+<code data-language="javascript">svg.append("path")
+    .attr("d","M 0 60 L 50 110 L 90 70 L 140 100")
+    .style("stroke-width", 3)
+    .style("stroke", "green")
+    .attr("transform","translate(30,-40)");                           
+                    
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Line</td>
+                <td id="canvas3"></td>
+                <td>
+                  <pre>
+<code data-language="javascript">svg.append("svg:line")
+  .attr("x1",0)
+  .attr("y1",50)
+  .attr("x2",400)
+  .attr("y2",50)
+  .style("stroke-width", 10)
+  .style("stroke", "steelblue")
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Line: Rounded Corners</td>
+                <td id="canvas4"></td>
+                <td>
+                <pre>
+<code data-language="javascript">svg.append("svg:path")
+  .attr("d","M 0 60 L 300 60 L 140 100")
+  .style("stroke-width", 10)
+  .style("stroke", "orange")
+  .style("stroke-linecap","round")
+  .style("stroke-linejoin","round")
+  .style("fill", "none")                      
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>OnClick-Event</td>
+                <td id="canvas5"></td>
+                <td>
+                  <pre>
+<code data-language="javascript">svgElement.on("click", function(){
+      //Do somethings - for example
+      d3.select(this).call(a_function)
+      console.log("Yeahh click!")
+})                    
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Transition</td>
+                <td id="canvas6"></td>
+                <td>
+                  <pre>
+                    <code data-language="javascript">                           
+                      
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Toogle Bar chart</td>
+                <td id="canvas7"></td>
+                <td>
+                  <pre>
+<code data-language="javascript">   var toogle = 1;
+   var createRect = function() {
+      svg.append("rect")
+        .attr("class","rect")
+        .attr("width",150)
+        .attr("height",50)
+        .style("fill", "blue")
+   }
+   var g = button.on("click", function(){
+        toogle *= -1
+        var elem = svg.select(".rect")
+                    .transition()
+                    .duration(1000)
+
+        if(toogle == 1) {
+            elem.attr("width", 100)
+        } else { 
+            elem.attr("width", 50)
+        }
+   }); 
+   var rect = g.call(createRect); 
+    // The variable "createRect" contains the blue rect 
+    // which occurs when the button was clicked                  
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Different Easing Bar chart</td>
+                <td id="canvas8"></td>
+                <td>
+                  <pre>
+                    <code data-language="javascript">                           
+                    
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Rectangular with svg filter effect</td>
+                <td id="canvas9"></td>
+                <td>
+                  <pre>
+                    <code data-language="javascript">                           
+                    
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Infinite Animation</td>
+                <td id="canvas10"></td>
+                <td>
+                  <pre>
+                    <code data-language="javascript">                           
+                    
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Force-Layout</td>
+                <td id="canvas11"></td>
+                <td>
+                  <pre>
+                    <code data-language="javascript">                           
+                    
+                    </code>
+                   </pre> 
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- <div id="canvas"></div> -->
+    <script type="text/javascript">
+    var w = 500, h = 100;    
+    
+    data = [{"label":"0", "value":0},  {"label":"1", "value":1},  {"label":"2", "value":2},  {"label":"3", "value":3}];
+    svgs = [];
+    for (var i = 0; i < 12; i++) {
+        svgs.push(d3.select("#canvas"+i).append("svg:svg").data([data]).attr("width", w).attr("height", h));
+    }
+
+  //---------------------- Filter --------------------------------------------
+  
+
+    var filter = svgs[0].append("svg:defs") 
+                    .append("svg:filter") 
+                      .attr("id", "turbFilter1") 
+                      .attr("in", "SourceImage") 
+                      .attr("filterUnits", "objectBoundingBox"); 
+    var turb1 = filter.append("svg:feTurbulence") 
+                         .attr("baseFrequency", 0.05) 
+                         .attr("numOctaves", 1) 
+                         .attr("result", "turbulenceOut1"); 
+    var disp1 = filter.append("svg:feDisplacementMap") 
+                        .attr("in", "SourceGraphic") 
+                        .attr("in2", "turbulenceOut1") 
+                        .attr("xChannelSelector", "B") 
+                        .attr("yChannelSelector", "R") 
+                        .attr("scale", 2); 
+    var diff1 = filter.append("svg:feDiffuseLighting") 
+                        .attr("in", "SourceGraphic") 
+                        .attr("diffuseConstant", 2) 
+                        .attr("surfaceScale", 20) 
+                        .attr("style", "lighting-color:#FFFFCC") 
+                      .append("svg:feSpotLight") 
+                        .attr("x", 30) 
+                        .attr("y", 10) 
+                        .attr("z", 80) 
+                        .attr("pointsAtX", 30) 
+                        .attr("pointsAtY", 30) 
+                        .attr("pointsAtZ", 0) 
+                        .attr("specularExponent", 4);
+
+
+  function clone(selector) { 
+    var node = d3.select(selector).node(); 
+    return d3.select(node.parentNode.insertBefore(node.cloneNode(true), node.nextSibling)); 
+  } 
+//-----------------------Basic Elements-----------------------------------
+      var buttonNr = 0;
+      function createButton(svgCanvas){ 
+          var  g = svgCanvas.append("svg:g")
+              .attr("transform","translate(10,40)")
+              .attr("class","button")
+              .attr("id","main-button")
+              .on("mouseover", function(d){
+                   d3.select(this).select("rect")
+                    .transition()
+                    .duration(500)
+                        .attr("stroke", "#E31D76")
+                        .attr("stroke-width", 10);
+               })
+               .on("mouseout", function(d){
+               
+               d3.select(this).select("rect")
+                  .transition()
+                  .duration(500)
+                      .attr("stroke", "#00AFD6")
+                      .attr("stroke-width", 10);
+
+                });
+          
+          var rect = g.append("rect")
+            .attr("id","butt"+buttonNr)
+            .attr("class","butt1")
+            .attr("width",100)
+            .attr("height",50)
+            .attr("stroke","#E31D76")
+            .attr("stroke-width", 10)
+            .attr("text-anchor", "start")
+            .attr("y", -30)
+            .attr("x");
+                
+          buttonNr++;
+            
+          var text = g.append("svg:text")  
+            .attr("x", 15)
+            .attr("y", 5)
+            .attr("fill", "white" )
+            .attr("text-anchor", "start")
+            .attr("font-size",30)
+            .attr("font-family","Quicksand_Light")
+            .text("Click");
+
+        return g;
+    }
+
+    function createRect(svgCanvas){
+        var rect = svgCanvas.append("rect")
+        .attr("transform","translate(120,-30)")
+        .attr("class","recti")
+        .attr("width",150)
+        .attr("height",50)
+        .style("fill", "blue")
+        .transition()
+            .duration(100)
+                .attr("width",300);
+        return rect;
+    }
+//-----------------------Canvas 1-----------------------------------
+    var rect = svgs[0].append("rect")
+        .attr("width",50)
+        .attr("height",50)
+        .style("fill", "red")
+        .attr("y", h / 2 - 25)
+        .attr("x", w / 2 -25);
+//-----------------------Canvas 2 - Circle Expample -----------------------------------
+    var circle = svgs[1].append("circle")
+        .data([70])
+        .style("fill", "blue")
+        .attr("cx", w /     2)
+        .attr("cy", h / 2)
+        .attr("r", 30);
+//-----------------------Canvas 3 - Path Example -----------------------------------
+    var path = svgs[2].append("svg:path")
+        .attr("d","M 0 60 L 50 110 L 90 70 L 140 100")
+        .style("stroke-width", 3)
+        .style("stroke", "green")
+        .style("fill", "none")
+        .attr("transform","translate(30,-40)");
+
+//-----------------------Canvas 4 - Linen Example -----------------------------------      
+   var line = svgs[3].append("svg:line")
+        .attr("x1",0)
+        .attr("y1",50)
+        .attr("x2",400)
+        .attr("y2",50)
+        .style("stroke-width", 10)
+        .style("stroke", "steelblue"); 
+            
+//-----------------------Canvas 5 Path Example with Roundes Edges -----------------------------------        
+  var line = svgs[4].append("svg:path")
+    .attr("d","M 0 60 L 300 60 L 140 100")
+    .style("stroke-width", 10)
+    .style("stroke", "orange")
+    .style("stroke-linecap","round")
+    .style("stroke-linejoin","round")
+    .style("fill", "none")
+    .attr("transform","translate(30,-40)");    
+ 
+//-----------------------Canvas 6 Example OnClick Event-----------------------------------
+   var g2 = createButton(svgs[5]).on("click", function(){
+        var rect = d3.select(this).call(createRect); 
+        console.log("this"); 
+   });
+
+//-----------------------Canvas 7 Example Transition-----------------------------------
+   var g2   = createButton(svgs[6]).on("click", function(){
+        var elem = svgs[6].select(".recti").transition().duration(1000).attr("width", 0); 
+   });
+   var rect = g2.call(createRect);
+
+//-----------------------Canvas 8-----------------------------------
+   var toogle = 1;
+
+   var g = createButton(svgs[7]).on("click", function(){
+        toogle *= -1;
+        var elem = svgs[7].select(".recti").transition().duration(1000);
+        if(toogle == 1){
+            elem.attr("width",100);
+        }else{ 
+            elem.attr("width",50);
+        }
+   }); 
+   var rect = g.call(createRect);
+
+//-----------------------Canvas 9-----------------------------------
+    var g2   = createButton(svgs[8]).on("click", function(){
+        var elem = svgs[8].select(".recti").transition().ease("elastic").duration(1000).attr("width", 0);
+    });
+   var rect = g2.call(createRect);
+
+//-----------------------Canvas 10-----------------------------------
+       var rect = svgs[9].append("rect")
+        .attr("width",50)
+        .attr("height",50)
+        .style("fill", "red")
+        .attr("y", h / 2 - 25)
+        .attr("x", w / 2 -25)
+        .attr("filter", "url(#turbFilter1)");
+//-----------------------Canvas 11-----------------------------------
+    var rect = svgs[10].append("rect")
+        .attr("width",50)
+        .attr("height",50)
+        .style("fill", "red")
+        .attr("y", h / 2 - 25)
+        .attr("x", 500);
+        
+        var tooglestart = -100;
+
+        function inf_loop(elem){
+
+          elem.transition()
+            .duration(3000)
+            .attr("x",tooglestart)
+            .each("end", function() { 
+               console.log("this");
+               tooglestart = -1*tooglestart;
+               inf_loop(d3.select(this));
+             });
+        }
+        rect.call(inf_loop);
+        
+//-----------------------Canvas 10-----------------------------------
+
+      var fill  = d3.scale.category10(),
+          nodes = d3.range(5).map(Object);
+
+      var vis = svgs[11];
+
+      var force = d3.layout.force()
+          .nodes(nodes)
+          .links([])
+          .size([w, h])
+          .start();
+
+      var node = vis.selectAll("circle.node")
+          .data(nodes)
+          .enter().append("svg:circle")
+            .attr("class", "node")
+            .attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; })
+            .attr("r", 8)
+            .style("fill", function(d, i) { return fill(i & 3); })
+            .style("stroke", function(d, i) { return d3.rgb(fill(i & 3)).darker(2); })
+            .style("stroke-width", 1.5)
+            .call(force.drag);
+
+      vis.style("opacity", 1e-6)
+        .transition()
+          .duration(1000)
+          .style("opacity", 1);
+
+      force.on("tick", function(e) {
+        var k = 2 * e.alpha;
+        nodes.forEach(function(o, i) {
+          o.y += i & 1 ? k : -k;
+          o.x += i & 2 ? k : -k;
+        });
+
+        node.attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
+      });
+
+//-----------------------JQUERY STUFF IF NECESSARY-----------------------------------
+
+    // jQuery(document).ready(function() {
+
+    // });
+    </script>
+  </div>
+  <footer>
+
+  </footer>
+
+
+  
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  
+
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+</body>
+</html>
